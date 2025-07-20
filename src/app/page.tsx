@@ -1,103 +1,100 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+
+const MotionDiv = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.div),
+  { ssr: false } // 禁用服务端渲染
+);
 
 export default function Home() {
+  const namesofli = ["Home", "About", "Skills", "Work", "Contact"];
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <header className=" fixed bg-white w-full shadow-[0_1px_4px_rgba(146,161,176,0.15)]">
+        <nav className="h-[4.5rem] flex items-center justify-between font-[600] max-w-[1024px] mx-auto">
+          <div>
+            <a href="#" className="">
+              <Image src="/logo1.png" alt="logo" width={100} height={100} />
+            </a>
+          </div>
+          <div className=" max-md:hidden">
+            <ul className="flex ">
+              {namesofli.map((name, index) => (
+                <li
+                  key={index}
+                  className="ml-[3rem]  relative after:absolute after:w-0 after:h-[0.18rem] after:left-0 after:top-[2rem] after:bg-[#3E6FF4] hover:after:w-full"
+                >
+                  {name}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="text-[1.5rem] text-[#0D1730] cursor-pointer hidden max-md:block">
+            <i className="bx bx-menu"></i>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <section className=" relative max-w-[1024px] grid mx-auto pt-[10rem] pb-[2rem]">
+          <MotionDiv
+            layout="position"
+            initial={{ y: -60, opacity: 0 }} // 初始位置：上方 60px，透明度 0
+            whileInView={{ y: 0, opacity: 1 }} // 进入视口时回到原位，透明度 1
+            viewport={{ once: true }} // 只触发一次
+            transition={{
+              duration: 2, // 动画时长 2000ms
+              delay: 0.2, // 延迟 200ms
+              ease: "easeOut", // 缓动效果
+            }}
+          >
+            <div className="self-center">
+              <h1 className="text-[3.5rem] mb-[2.5rem] font-bold">
+                Hi,
+                <br /> I'am <span className="text-[#3E6FF4]">LiuJunpeng</span>
+                <br /> Web Designer
+              </h1>
+              <a className=" inline-block py-[0.75rem] px-[2.5rem] bg-[#3E6FF4] text-[#FFF] rounded-[0.5rem] hover:shadow-[0_10px_36px_rgba(0, 0, 0, 0.15)] transition duration-300">
+                Contact
+              </a>
+            </div>
+            <div className="flex self-end gap-6 mt-16">
+              <a className="text-[1.5rem] hover:text-[#3E6FF4]">
+                <i className="bx bxl-linkedin"></i>
+              </a>
+              <a className="text-[1.5rem] hover:text-[#3E6FF4]">
+                <i className="bx bxl-behance"></i>
+              </a>
+              <a className="text-[1.5rem] hover:text-[#3E6FF4]">
+                <i className="bx bxl-github"></i>
+              </a>
+            </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+            <div className="absolute right-0 bottom-0 w-[450px]">
+              <svg
+                className="fill-[#3E6FF4]"
+                viewBox="0 0 479 467"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <mask id="mask0" mask-type="alpha">
+                  <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                </mask>
+                <g mask="url(#mask0)">
+                  <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z" />
+                  <image
+                    className="w-[360px]"
+                    x="50"
+                    y="60"
+                    href="assets/img/perfil.png"
+                  />
+                </g>
+              </svg>
+            </div>
+          </MotionDiv>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
