@@ -94,6 +94,166 @@ export default function Home() {
             </div>
           </MotionDiv>
         </section>
+
+        <section className="pt-[3rem] pb-[2rem]">
+          <h2
+            className="text-center text-[2rem] font-bold text-[#3E6FF4] relative mb-[3rem]
+          after:text-center after:absolute after:w-[64px] after:h-[0.18rem] after:bg-[#3E6FF4] after:left-0 after:right-0 after:top-[4rem] after:m-auto"
+          >
+            About
+          </h2>
+          <div className="grid max-w-[1024px] mx-auto grid-cols-2 items-center text-left">
+            <div>
+              <Image src={"/logo1.png"} width={300} height={300} alt="logo1" />
+            </div>
+            <div>
+              <h2 className="text-[2.5rem] font-bold mb-[1rem]">
+                I'm LiuJunpneg
+              </h2>
+              <p className="text-[20px]">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat
+                ut voluptates soluta, aut earum nemo recusandae cumque
+                perferendis! Recusandae alias accusamus atque.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="pt-[3rem] pb-[2rem]">
+          <h2
+            className="text-center text-[2rem] font-bold text-[#3E6FF4] relative mb-[3rem] 
+          after:text-center after:absolute after:w-[64px] after:h-[0.18rem] after:bg-[#3E6FF4] after:left-0 after:right-0 after:top-[4rem] after:m-auto"
+          >
+            Skills
+          </h2>
+          <div className="grid max-w-[1024px] mx-auto grid-cols-2 items-center text-left">
+            <div>
+              <h2 className="text-[2.5rem] font-bold mb-[1rem]">
+                Profesional Skills
+              </h2>
+              <p className="text-[20px]">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
+                optio id vero amet, alias architecto consectetur error eum eaque
+                sit.
+              </p>
+              <div className="flex justify-between items-center relative py-[0.5rem] px-[1rem] rounded-[0.5rem] shadow-[0_4px_25px_#F6F7F7] mb-[2rem]">
+                <div className="flex items-center">
+                  <i className="bx bxl-html5 text-[2rem] mr-[1rem] text-[#3E6FF4]"></i>
+                  <span>HTML</span>
+                </div>
+
+                <div className=" absolute left-0 bottom-0 h-[0.25rem] bg-[#3E6FF4] w-[100%]"></div>
+                <div>
+                  <span>100%</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center relative py-[0.5rem] px-[1rem] rounded-[0.5rem] shadow-[0_4px_25px_#F6F7F7] mb-[2rem]">
+                <div className="flex items-center">
+                  <i className="bx bxl-html5 text-[2rem] mr-[1rem] text-[#3E6FF4]"></i>
+                  <span>HTML</span>
+                </div>
+
+                <div className=" absolute left-0 bottom-0 h-[0.25rem] bg-[#3E6FF4] w-[100%]"></div>
+                <div>
+                  <span>100%</span>
+                </div>
+              </div>
+              <div className="flex justify-between items-center relative py-[0.5rem] px-[1rem] rounded-[0.5rem] shadow-[0_4px_25px_#F6F7F7] mb-[2rem]">
+                <div className="flex items-center">
+                  <i className="bx bxl-html5 text-[2rem] mr-[1rem] text-[#3E6FF4]"></i>
+                  <span>HTML</span>
+                </div>
+
+                <div className=" absolute left-0 bottom-0 h-[0.25rem] bg-[#3E6FF4] w-[100%]"></div>
+                <div>
+                  <span>100%</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <Image
+                src={"/logo1.png"}
+                alt="image"
+                className=" rounded-[0.5rem]"
+                width={500}
+                height={500}
+              ></Image>
+            </div>
+          </div>
+        </section>
+        <section className="pt-[3rem] pb-[2rem]">
+          <h2
+            className="text-center text-[2rem] font-bold text-[#3E6FF4] relative mb-[3rem]
+          after:text-center after:absolute after:w-[64px] after:h-[0.18rem] after:bg-[#3E6FF4] after:left-0 after:right-0 after:top-[4rem] after:m-auto"
+          >
+            Work
+          </h2>
+          <div className="grid max-w-[1024px] mx-auto grid-cols-3">
+            <a className=" border rounded-[0.5rem] overflow-hidden">
+              <Image
+                src={"/logo1.png"}
+                alt="image"
+                className=" hover:scale-110 transition-all duration-1000 ease-in-out"
+                width={500}
+                height={500}
+              ></Image>
+            </a>
+            <a className=" border rounded-[0.5rem] overflow-hidden">
+              <Image
+                src={"/logo1.png"}
+                alt="image"
+                className=" hover:scale-110 transition-all duration-1000 ease-in-out"
+                width={500}
+                height={500}
+              ></Image>
+            </a>
+            <a className=" border rounded-[0.5rem] overflow-hidden">
+              <Image
+                src={"/logo1.png"}
+                alt="image"
+                className=" hover:scale-110 transition-all duration-1000 ease-in-out"
+                width={500}
+                height={500}
+              ></Image>
+            </a>
+            <a className=" border rounded-[0.5rem] overflow-hidden">
+              <Image
+                src={"/logo1.png"}
+                alt="image"
+                className=" hover:scale-110 transition-all duration-1000 ease-in-out"
+                width={500}
+                height={500}
+              ></Image>
+            </a>
+            <a className=" border rounded-[0.5rem] overflow-hidden">
+              <Image
+                src={"/logo1.png"}
+                alt="image"
+                className=" hover:scale-110 transition-all duration-1000 ease-in-out"
+                width={500}
+                height={500}
+              ></Image>
+            </a>
+            <a className=" border rounded-[0.5rem] overflow-hidden">
+              <Image
+                src={"/logo1.png"}
+                alt="image"
+                className=" hover:scale-110 transition-all duration-1000 ease-in-out"
+                width={500}
+                height={500}
+              ></Image>
+            </a>
+          </div>
+        </section>
+        <section className="pt-[3rem] pb-[2rem]">
+          <h2
+            className="text-center text-[2rem] font-bold text-[#3E6FF4] relative mb-[3rem]
+          after:text-center after:absolute after:w-[64px] after:h-[0.18rem] after:bg-[#3E6FF4] after:left-0 after:right-0 after:top-[4rem] after:m-auto"
+          >
+            Contact
+          </h2>
+        </section>
       </main>
     </>
   );
