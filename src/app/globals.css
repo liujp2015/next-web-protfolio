@@ -1,7 +1,5 @@
 /* 禁用 Tailwind 的默认样式（避免与 ShadCN 冲突） */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
