@@ -1,29 +1,14 @@
-import createMDX from "@next/mdx";
-import rehypePrismPlus from "rehype-prism-plus";
+// next.config.ts
+import type { NextConfig } from "next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Configure `pageExtensions` to include markdown and MDX files
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-  // Optionally, add any other Next.js config below
-  serverExternalPackages: ["next-mdx-remote", "rehype-prism-plus"],
+const externals: string[] = ["next-mdx-remote-client"];
+if (process.env.TURBOPACK) {
+  externals.push("rehype-prism-plus");
+}
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true, // 开启react严格模式
+  serverExternalPackages: externals,
 };
 
-const withMDX = createMDX({
-  extension: /\.(md|mdx)$/,
-  options: {
-    rehypePlugins: [
-      [
-        rehypePrismPlus,
-        {
-          ignoreMissing: true,
-          showLineNumbers: true,
-          dynamicImport: true, // 自动按需加载语言
-        },
-      ],
-    ],
-  },
-});
-
-// Merge MDX config with Next.js config
-export default withMDX(nextConfig);
+export default nextConfig;

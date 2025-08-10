@@ -3,8 +3,6 @@ import { SimpleLayout } from "@/components/tailwindplus/SimpleLayout";
 import { formatDate } from "@/lib/formatDate";
 import { queryPostPaginate } from "../_actions/post";
 import { PaginationDemo } from "../_components/pagination";
-import { Link } from "lucide-react";
-import Tool from "../blogEdit/tool";
 
 function Article({ article }) {
   return (
@@ -63,7 +61,6 @@ export default async function ArticlesIndex({ searchParams }) {
         totalPages={articles.meta.totalPages}
         currentPage={articles.meta.currentPage}
       />
-      <Tool></Tool>
     </SimpleLayout>
   );
 }

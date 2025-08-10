@@ -1,19 +1,17 @@
-import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import { defaultMdxSerializeOptions } from "./default-options";
+// src/app/_components/mdx/render.tsx
+// ...
+
 import { FC } from "react";
-import { deepMerge } from "@/lib/utils";
+import { MdxRenderProps } from "./types";
+import { serializeMdx } from "./utils";
+import { MdxHydrate } from "./hydrate";
 
 /**
  * 动态mdx渲染组件
+ * @param props
  */
-export const MdxRender: FC<MDXRemoteProps> = async (props) => {
-  return (
-    <MDXRemote
-      {...(deepMerge(
-        defaultMdxSerializeOptions,
-        props,
-        "merge"
-      ) as MDXRemoteProps)}
-    />
-  );
+export const MdxRender: FC<MdxRenderProps> = async (props) => {
+  const { source, options, hydrate } = props;
+  const result = await serializeMdx(source, options ?? {});
+  return <MdxHydrate {...(hydrate ?? {})} serialized={result} />;
 };

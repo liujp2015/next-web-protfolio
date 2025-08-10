@@ -1,6 +1,11 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import deepmerge from "deepmerge";
+// 添加缺失的导入
+import { Faker, zh_CN, en, base } from "@faker-js/faker";
+import { PaginationResult } from "prisma-paginate";
+import { PaginateReturn } from "./page/types";
+import { omit } from "lodash";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -24,4 +29,25 @@ export const deepMerge = <T1, T2>(
     options.arrayMerge = (_d, s, _o) => Array.from(new Set([..._d, ...s]));
   }
   return deepmerge(x, y, options) as T2 extends T1 ? T1 : T1 & T2;
+};
+
+export const faker = new Faker({
+  locale: [zh_CN, en, base],
+});
+
+export const paginateTransform = <M, R extends PaginationResult<M[]>>(
+  data: R
+): PaginateReturn<M> => {
+  const { result } = data;
+  return {
+    items: result,
+    meta: {
+      itemCount: result.length,
+      totalItems: data.count,
+      perPage: data.limit,
+      totalPages: data.totalPages,
+      currentPage: data.page,
+      ...omit(data, ["result", "count", "limit", "page", "totalPages"]),
+    },
+  };
 };

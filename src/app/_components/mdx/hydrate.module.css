@@ -1,0 +1,13 @@
+/* src/app/_components/mdx/hydrate.module.css */
+@import "tailwindcss";
+.container {
+  @apply w-full flex gap-8;
+
+  & > .article {
+    @apply flex-1 min-w-0 overflow-hidden;
+  }
+
+  & > .toc {
+    @apply w-56 flex-shrink-0 sticky top-16 self-start;
+  }
+}
